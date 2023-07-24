@@ -7,3 +7,8 @@ class News(models.Model):
     content = models.TextField()
     pub_date = models.DateTimeField('date published')
     writer = models.CharField(max_length=30, default='Majornity')
+
+class recruitment(models.Model):
+    title = models.CharField(max_length=50)
+    content = models.TextField()
+    pub_date = models.DateTimeField('date published')

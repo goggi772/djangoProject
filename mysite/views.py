@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 
-from mysite.models import News
+from mysite.models import News, recruitment
 
 
 # Create your views here.
@@ -21,7 +21,9 @@ def about(request):
 
 
 def contact(request):
-    return render(request, 'mysite/recruitment.html')
+    recru_list = recruitment.objects.order_by('-pub_date')
+    context = {'recru_list': recru_list}
+    return render(request, 'mysite/recruitment.html', context)
 
 
 def post(request):
