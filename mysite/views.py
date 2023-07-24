@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 
-from mysite.models import MainContent
+from mysite.models import News
 
 
 # Create your views here.
@@ -14,12 +14,15 @@ def index(request):
 
 
 def about(request):
-    return render(request, 'mysite/about.html')
+
+    news_list = News.objects.order_by('-pub_date')
+    context = {'news_list': news_list}
+    return render(request, 'mysite/about.html', context)
 
 
 def contact(request):
-    return render(request, 'mysite/contact.html')
+    return render(request, 'mysite/recruitment.html')
 
 
 def post(request):
-    return render(request, 'mysite/post.html')
+    return render(request, 'mysite/inquiry.html')
