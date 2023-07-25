@@ -27,3 +27,32 @@ window.addEventListener('DOMContentLoaded', () => {
         scrollPos = currentTop;
     });
 })
+
+document.addEventListener("DOMContentLoaded", function () {
+    var dropdowns = document.querySelectorAll(".dropdown-toggle");
+    var dropdownMenus = document.querySelectorAll(".dropdown-menu");
+
+    // 드롭다운 토글 버튼에 호버 이벤트 리스너를 추가합니다.
+    dropdowns.forEach(function (dropdown) {
+      dropdown.addEventListener("mouseover", function () {
+        var dropdownMenu = this.nextElementSibling;
+        dropdownMenu.classList.add("show");
+      });
+
+      dropdown.addEventListener("mouseout", function () {
+        var dropdownMenu = this.nextElementSibling;
+        dropdownMenu.classList.remove("show");
+      });
+    });
+
+    // 드롭다운 메뉴에 호버 이벤트 리스너를 추가합니다.
+    dropdownMenus.forEach(function (menu) {
+      menu.addEventListener("mouseover", function () {
+        this.classList.add("show");
+      });
+
+      menu.addEventListener("mouseout", function () {
+        this.classList.remove("show");
+      });
+    });
+  });

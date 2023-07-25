@@ -1,11 +1,14 @@
-from django.urls import path
+from django.urls import path, include
 
 from . import views
 
 urlpatterns = [
     path('', views.index),
-    path('about/', views.about),
-    path('contact/', views.contact),
-    path('post/', views.post),
+    path('news/', views.news),
+    path('recru/', views.recru),
+    path('recru/<str:id>/', views.recru_view),
+    path('inquiry/', include('inquiry.urls')),
+    path('about/', include('about.urls')),
+    path('login/', views.login)
 
 ]

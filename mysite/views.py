@@ -1,30 +1,36 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
 from mysite.models import News, recruitment
 
 
 # Create your views here.
-def index(request):
-    # return HttpResponse("Hello, World!")
-
-    # content_list = MainContent.objects.order_by('-pub_date')
-    # context = {'content_list': content_list}
+def index(request):  #홈
     return render(request, 'mysite/home.html')
 
 
-def about(request):
+def news(request):  #새소식
 
     news_list = News.objects.order_by('-pub_date')
     context = {'news_list': news_list}
-    return render(request, 'mysite/about.html', context)
+    return render(request, 'mysite/news.html', context)
 
 
-def contact(request):
+def recru(request): #채용
     recru_list = recruitment.objects.order_by('-pub_date')
     context = {'recru_list': recru_list}
     return render(request, 'mysite/recruitment.html', context)
 
+def recru_view(request, id):
+    recruit = get_object_or_404(recruitment, id=id)
+    return render(request, 'mysite/recru_view.html', {'recru': recruit})
 
-def post(request):
-    return render(request, 'mysite/inquiry.html')
+def inquiry(request):  #문의
+    return render(request, 'mysite/inquiry/inquiry.html')
+
+def login(request):
+    return render(request, 'mysite/login/login.html')
+
+
+
+

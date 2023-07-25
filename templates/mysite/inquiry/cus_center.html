@@ -8,13 +8,22 @@
         <meta name="author" content="" />
         <title>Clean Blog - Start Bootstrap Theme</title>
         <link rel="icon" type="image/x-icon" href="{% static 'assets/favicon.ico' %}" />
+        <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="{% static 'css/my_styles.css' %}" rel="stylesheet" />
+        <link href="{% static 'css/my_styles.css' %}" rel="stylesheet" type="text/css"/>
     </head>
+<style>
+    .box_gen{
+        border: 2px solid #ced4da;
+        padding: 30px 30px;
+        width: 70%;
+        margin: 0 auto;
+    }
+</style>
     <body>
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
@@ -43,33 +52,39 @@
             </div>
         </nav>
         <!-- Page Header-->
-        <header class="masthead" style="background-image: url('{% static 'assets/img/home-bg.jpg' %}')">
+        <header class="masthead" style="background-image: url({% static 'assets/img/contact-bg.jpg' %})">
             <div class="container position-relative px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
-                        <div class="site-heading">
-                            <h2>Majornity</h2>
-                            <span class="subheading">같은 분야의 사람들이 모여 소통하고</span>
-                            <span class="subheading">지식을 공유할 수 있는 커뮤니티 서비스</span>
+                        <div class="page-heading">
+                            <h2>고객 센터</h2>
                         </div>
                     </div>
                 </div>
             </div>
         </header>
         <!-- Main Content-->
-        <div class="container position-relative px-4 px-lg-5">
-            <div class="row gx-4 gx-lg-5 justify-content-center">
-                <div class="col-md-10 col-lg-8 col-xl-7">
-                    <div class="page-heading" style="text-align: center">
-                        <h1>About</h1>
-                        <hr style="border: solid 1px black">
-                        <p>저희는 소통을 자유롭게 할 수 있는 공간,<br>
-                        의견을 나눌 수 있는 공간을<br>
-                        만들어 나가고 있습니다.</p>
+        <main class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <h2 style="text-align: center; padding: 70px">고객 센터</h2>
+                    <div class="col-md-10 col-lg-8 col-xl-7 d-flex">
+                        <img src="{% static 'assets/img/telephone.png' %}" width="30" height="30">
+                        <div class="me-4"></div>
+                        <div>1111 - 1111</div>
+                        <div class="me-auto"></div>
+                        <div>운영시간: 오전 10:00 ~ 오후 6:00<br>점심시간: 오후 1:00 ~ 오후 2:00</div>
+                    </div>
+                    <div class="my-5"></div>
+                    <div style="text-align: center">혼잡한 시간대에는 전화 연결이 어려울 수 있습니다. 문의 게시판이나 메일을 이용해 주세요</div>
+                    <div class="my-3"></div>
+                    <div class="d-flex">
+                        <button type="button" class="btn btn-primary m-sm-auto" onClick="location.href='/inquiry/comments'">문의 게시판</button>
+                        <button type="submit" class="btn btn-primary m-sm-auto">메일</button>
                     </div>
                 </div>
             </div>
-        </div>
+        </main>
         <!-- Footer-->
         <footer class="border-top">
             <div class="container px-4 px-lg-5">
@@ -110,5 +125,10 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="{% static 'js/my_scripts.js' %}"></script>
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <!-- * *                               SB Forms JS                               * *-->
+        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
     </body>
 </html>

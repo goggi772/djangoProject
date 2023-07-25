@@ -27,11 +27,18 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto py-4 py-lg-0">
-                        <li class="nav-item"><a class="nav-link px-lg-5 py-3 py-lg-4" style="font-size: 15px" href="/">소개</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-5 py-3 py-lg-4" style="font-size: 15px" href="/about">새소식</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-5 py-3 py-lg-4" style="font-size: 15px" href="/post">문의</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-5 py-3 py-lg-4" style="font-size: 15px" href="/contact">채용</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-5 py-3 py-lg-4" style="font-size: 15px" href="/contact">로그인</a></li>
+                        <li class="nav-item dropdown"><a class="nav-link px-lg-5 py-3 py-lg-4 dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 15px">소개</a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="/about/company">회사 소개</a></li>
+                            <li><a class="dropdown-item" href="/about/service">서비스 소개</a></li>
+                            <li><a class="dropdown-item" href="/about/directions">오시는 길</a></li></ul>
+                        <li class="nav-item"><a class="nav-link px-lg-5 py-3 py-lg-4" style="font-size: 15px" href="/news">새소식</a></li>
+                        <li class="nav-item dropdown"><a class="nav-link px-lg-5 py-3 py-lg-4 dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 15px">문의</a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="/inquiry/comments">고객 의견</a></li>
+                            <li><a class="dropdown-item" href="/inquiry/center">고객 센터</a></li></ul>
+                        <li class="nav-item"><a class="nav-link px-lg-5 py-3 py-lg-4" style="font-size: 15px" href="/recru">채용</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-5 py-3 py-lg-4" style="font-size: 15px" href="/login">로그인</a></li>
                     </ul>
                 </div>
             </div>
@@ -56,7 +63,7 @@
                     {% if news_list %}
                         {% for content in news_list %}
                         <div class="post-preview">
-                            <a href="inquiry.html">
+                            <a href="inquiry/inquiry.html">
                                 <h2 class="post-title"><a href="/mysite/{{ content.id }}/">{{ content.title }}</a></h2>
                                 <h4><a style="font-weight: normal" href="/mysite/{{ content.id }}/">{{ content.content }}</a></h4>
                             </a>
@@ -72,75 +79,9 @@
                     {% else %}
                         <p>Not exist Content</p>
                     {% endif %}
-                    <!-- Post preview-->
-                    {% comment %}<div class="post-preview">
-                        <a href="inquiry.html">
-                            <h2 class="post-title">Man must explore, and this is exploration at its greatest</h2>
-                            <h3 class="post-subtitle">Problems look mighty small from 150 miles up</h3>
-                        </a>
-                        <p class="post-meta">
-                            Posted by
-                            <a href="#!">Start Bootstrap</a>
-                            on September 24, 2023
-                        </p>
-                    </div>
-                    <!-- Divider-->
-                    <hr class="my-4" />
-                    <!-- Post preview-->
-                    <div class="post-preview">
-                        <a href="inquiry.html"><h2 class="post-title">I believe every human has a finite number of heartbeats. I don't intend to waste any of mine.</h2></a>
-                        <p class="post-meta">
-                            Posted by
-                            <a href="#!">Start Bootstrap</a>
-                            on September 18, 2023
-                        </p>
-                    </div>
-                    <!-- Divider-->
-                    <hr class="my-4" />
-                    <!-- Post preview-->
-                    <div class="post-preview">
-                        <a href="inquiry.html">
-                            <h2 class="post-title">Science has not yet mastered prophecy</h2>
-                            <h3 class="post-subtitle">We predict too much for the next year and yet far too little for the next ten.</h3>
-                        </a>
-                        <p class="post-meta">
-                            Posted by
-                            <a href="#!">Start Bootstrap</a>
-                            on August 24, 2023
-                        </p>
-                    </div>
-                    <!-- Divider-->
-                    <hr class="my-4" />
-                    <!-- Post preview-->
-                    <div class="post-preview">
-                        <a href="inquiry.html">
-                            <h2 class="post-title">Failure is not an option</h2>
-                            <h3 class="post-subtitle">Many say exploration is part of our destiny, but it’s actually our duty to future generations.</h3>
-                        </a>
-                        <p class="post-meta">
-                            Posted by
-                            <a href="#!">Start Bootstrap</a>
-                            on July 8, 2023
-                        </p>
-                    </div>
-                    <!-- Divider-->
-                    <hr class="my-4" />
-                    <!-- Pager-->
-                    <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a></div>{% endcomment %}
                 </div>
             </div>
         </div>
-        {% comment %}<main class="mb-4">
-            <div class="container px-4 px-lg-5">
-                <div class="row gx-4 gx-lg-5 justify-content-center">
-                    <div class="col-md-10 col-lg-8 col-xl-7">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe nostrum ullam eveniet pariatur voluptates odit, fuga atque ea nobis sit soluta odio, adipisci quas excepturi maxime quae totam ducimus consectetur?</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius praesentium recusandae illo eaque architecto error, repellendus iusto reprehenderit, doloribus, minus sunt. Numquam at quae voluptatum in officia voluptas voluptatibus, minus!</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut consequuntur magnam, excepturi aliquid ex itaque esse est vero natus quae optio aperiam soluta voluptatibus corporis atque iste neque sit tempora!</p>
-                    </div>
-                </div>
-            </div>
-        </main>{% endcomment %}
         <!-- Footer-->
         <footer class="border-top">
             <div class="container px-4 px-lg-5">

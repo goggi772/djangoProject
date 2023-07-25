@@ -16,41 +16,78 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{% static 'css/my_styles.css' %}" rel="stylesheet" type="text/css"/>
     </head>
+<style>
+.box_gen{
+    background-color: black;
+    border-radius: 15px;
+    padding: 20px 20px;
+        width: 100%;
+        margin: 0 auto;
+    }
+</style>
     <body>
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
             <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="/">Majority</a>
+                <a class="navbar-brand" href="/">Majornity</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars"></i>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto py-4 py-lg-0">
-                        <li class="nav-item"><a class="nav-link px-lg-5 py-3 py-lg-4" style="font-size: 15px" href="/">소개</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-5 py-3 py-lg-4" style="font-size: 15px" href="/about">새소식</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-5 py-3 py-lg-4" style="font-size: 15px" href="/post">문의</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-5 py-3 py-lg-4" style="font-size: 15px" href="/contact">채용</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-5 py-3 py-lg-4" style="font-size: 15px" href="/contact">로그인</a></li>
+                        <li class="nav-item dropdown"><a class="nav-link px-lg-5 py-3 py-lg-4 dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 15px">소개</a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="/about/company">회사 소개</a></li>
+                            <li><a class="dropdown-item" href="/about/service">서비스 소개</a></li>
+                            <li><a class="dropdown-item" href="/about/directions">오시는 길</a></li></ul>
+                        <li class="nav-item"><a class="nav-link px-lg-5 py-3 py-lg-4" style="font-size: 15px" href="/news">새소식</a></li>
+                        <li class="nav-item dropdown"><a class="nav-link px-lg-5 py-3 py-lg-4 dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 15px">문의</a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="/inquiry/comments">고객 의견</a></li>
+                            <li><a class="dropdown-item" href="/inquiry/center">고객 센터</a></li></ul>
+                        <li class="nav-item"><a class="nav-link px-lg-5 py-3 py-lg-4" style="font-size: 15px" href="/recru">채용</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-5 py-3 py-lg-4" style="font-size: 15px" href="/login">로그인</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
         <!-- Page Header-->
-        <header class="masthead" style="background-image: url({% static 'assets/img/contact-bg.jpg' %})">
+        <header class="masthead" style="background-image: url({% static 'assets/img/intro.jpg' %})">
             <div class="container position-relative px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="page-heading">
-                            <h1>Contact Me</h1>
-                            <span class="subheading">Have questions? I have answers.</span>
+                            <h2>서비스 소개</h2>
                         </div>
                     </div>
                 </div>
             </div>
         </header>
         <!-- Main Content-->
-
+        <article class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5">
+                        <h3 class="section-heading" style="text-align: center">Majornity</h3>
+                    <div class="col-md-5 col-lg-5 col-xl-5 d-flex justify-content-end">
+                        <p style="text-align: center">Majornity는 Major + Community를 합친 단어로 다양한 전공과 분야를 가진 사람들끼리 정보를 공유하고 소통할 수 있는 서비스입니다.<br><br><br>
+                        같은 분야의 사람들과 소통하는것은 물론 평소에 관심있어 하는<br> 분야의 사람들과 다양한 소통을 <br>할 수 있습니다.</p>
+                    </div>
+                    <div class="col-lg-2"></div>
+                    <div class="col-md-5 col-lg-5 col-xl-5">
+                        <p style="text-align: center">Majornity 바로가기<br><br><br>
+                        <div class="box_gen text-white d-flex align-center">
+                        <a class="col-md-4 col-lg-4 col-xl-3 text-white" style="text-align: center" href="#!">웹</a>
+                        <div class="col-lg-1" style="text-align: center">|</div>
+                        <a class="col-md-4 col-lg-4 col-xl-4 text-white" style="text-align: center" href="#!">Android</a>
+                        <div class="col-lg-1" style="text-align: center">|</div>
+                        <a class="col-md-4 col-lg-4 col-xl-3 text-white" style="text-align: center" href="#!">IOS</a>
+                    </div>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </article>
         <!-- Footer-->
         <footer class="border-top">
             <div class="container px-4 px-lg-5">
