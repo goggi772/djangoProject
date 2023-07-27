@@ -2,7 +2,7 @@ import datetime
 
 from django.contrib import messages
 from django.http import HttpResponseRedirect
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 
 from inquiry import models
@@ -12,6 +12,10 @@ from inquiry.models import writing
 def customer_comments(request):  #고객의견
     com_list = writing.objects.order_by('-pub_date')
     return render(request, 'mysite/inquiry/comments.html', {'com_list': com_list})
+
+def comments_view(request, id):
+    comment = get_object_or_404(writing, id=id)
+    return render(request, 'mysite/inquiry/comments_view.html', {'comment': comment})
 
 def comments_writing(request):  #고객의견 글쓰기
     # if not request.user.is_authenticated:

@@ -68,13 +68,13 @@
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <h2 style="text-align: center; padding: 70px">고객 의견</h2>
-                    <div class="col-md-10 col-lg-8 col-xl-7 box_gen">
+                    <div class="col-md-10 col-lg-8 col-xl-7 py-xl-5 px-md-5 " style="border: 2px solid lightgray">
                         {% if com_list %}
                         {% for comm in com_list %}
-                        <div class="post-preview">
-                            <a href="#">
-                                <h5 class="post-title"><a href="/inquiry/{{ comm.id }}/">{{ comm.title }}</a></h5>
-                            </a>
+                        <div class="post-preview d-flex">
+                            <h5 class="post-title"><a href="/inquiry/comments/{{ comm.id }}/">{{ comm.title }}</a></h5>
+                            <div class="me-md-auto"></div>
+                            <h6>{{ comm.pub_date.year }}-{{ comm.pub_date.month }}-{{ comm.pub_date.day }}</h6>
                         </div>
                             {% if forloop.last %}
                             {% else %} <hr class="my-4" />
@@ -85,7 +85,12 @@
                     {% endif %}
                     </div>
                 </div>
-                    <button type="button" class="btn btn-primary ms-auto" style="width: 10%; height: 5%;" onClick="location.href='/inquiry/writing'">글쓰기</button>
+            <div class="my-4">
+                    <div class="col-lg-10 d-flex">
+                        <div class="me-md-auto"></div>
+                        <button type="button" class="btn btn-primary" onClick="location.href='/inquiry/writing'">글쓰기</button>
+                    </div>
+            </div>
             </div>
         </main>
         <!-- Footer-->
