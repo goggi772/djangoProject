@@ -13,8 +13,8 @@ def customer_comments(request):  #고객의견
     com_list = writing.objects.order_by('-pub_date')
     return render(request, 'mysite/inquiry/comments.html', {'com_list': com_list})
 
-def comments_view(request, id):
-    comment = get_object_or_404(writing, id=id)
+def comments_view(request, comments_id):
+    comment = get_object_or_404(writing, id=comments_id)
     return render(request, 'mysite/inquiry/comments_view.html', {'comment': comment})
 
 def comments_writing(request):  #고객의견 글쓰기

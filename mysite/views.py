@@ -21,15 +21,13 @@ def recru(request): #채용
     context = {'recru_list': recru_list}
     return render(request, 'mysite/recruitment.html', context)
 
-def recru_view(request, id):
-    recruit = get_object_or_404(recruitment, id=id)
+def recru_view(request, recru_id):
+    recruit = get_object_or_404(recruitment, id=recru_id)
     return render(request, 'mysite/recru_view.html', {'recru': recruit})
 
 def inquiry(request):  #문의
     return render(request, 'mysite/inquiry/inquiry.html')
 
-def login(request):
-    return render(request, 'mysite/login/login.html')
 
 
 

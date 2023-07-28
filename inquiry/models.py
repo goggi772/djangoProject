@@ -10,4 +10,4 @@ class writing(models.Model):
     pub_date = models.DateTimeField('date published')
     writer = models.CharField(max_length=30)
     comm_content = models.TextField(default="NotExistComments")
-    comm_pub_date = models.DateTimeField('comment date published', default=datetime.datetime.now())
+    comm_pub_date = models.DateTimeField('comment date published', null=True)

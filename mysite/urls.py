@@ -6,9 +6,9 @@ urlpatterns = [
     path('', views.index),
     path('news/', views.news),
     path('recru/', views.recru),
-    path('recru/<str:id>/', views.recru_view),
+    path('recru/<str:recru_id>/', views.recru_view, name='recru_view'),
     path('inquiry/', include('inquiry.urls')),
     path('about/', include('about.urls')),
-    path('login/', views.login)
+    path('accounts/', include('accounts.urls'))
 
 ]

@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('{% static 'assets/img/home-bg.jpg' %}')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                            <h2>로그인</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Main Content-->
+        <main class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <h2 style="text-align: center; padding: 70px">로그인</h2>
+                    <form class="row justify-content-center" id="login" action="{% url 'accounts:login' %}" name="login" method="post">
+                        <div class="col-md-7 col-lg-5 col-xl-5 py-xl-5 px-md-5" style="border: 2px solid lightgray">
+                                {% csrf_token %}
+                            {% if form.errors %}
+                                <h6 class="text-danger text-">아이디 또는 비밀번호가 틀립니다. 다시 시도해주세요.</h6>
+                            {% endif %}
+                                <div class="form-floating">
+                                    <input class="form-control" name="username" id="username" placeholder="" type="text" data-sb-validations="required"/>
+                                    <label for="username">ID</label>
+                                    <div class="invalid-feedback" data-sb-feedback="username:required">아이디를 입력하세요.</div>
+                                </div>
+                        <div class="my-4"></div>
+                                <div class="form-floating">
+                                    <input class="form-control" name="password" id="password" placeholder="" type="password" data-sb-validations="required"/>
+                                    <label for="password">Password</label>
+                                    <div class="invalid-feedback" data-sb-feedback="password:required">비밀번호를 입력하세요.</div>
+                                </div>
+                        </div>
+                        <div class="my-3"></div>
+                        <div class="col-md-7 col-lg-5 col-xl-5 d-flex">
+                            <button class="btn btn-primary text-uppercase" style="width: 30%; background-color: black; border-color: black" id="submitButton" type="submit" value="login">로그인</button>
+                            <div class="offset-5"></div>
+                            <a class="btn btn-primary text-uppercase" style="width: 30%; background-color: black; border-color: black" type="button" href="{% url 'accounts:signup' %}" >회원가입</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+{% endblock %}
