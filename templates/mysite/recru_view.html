@@ -2,32 +2,6 @@
 {% block content %}
 {% load static %}
 
-        <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-light" style="padding: 6px" id="mainNav">
-            <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="/">Majornity</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    Menu
-                    <i class="fas fa-bars"></i>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ms-auto py-4 py-lg-0">
-                        <li class="nav-item dropdown"><a class="nav-link px-lg-5 py-3 py-lg-4 dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 15px">소개</a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="/about/company">회사 소개</a></li>
-                            <li><a class="dropdown-item" href="/about/service">서비스 소개</a></li>
-                            <li><a class="dropdown-item" href="/about/directions">오시는 길</a></li></ul>
-                        <li class="nav-item"><a class="nav-link px-lg-5 py-3 py-lg-4" style="font-size: 15px" href="/news">새소식</a></li>
-                        <li class="nav-item dropdown"><a class="nav-link px-lg-5 py-3 py-lg-4 dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 15px">문의</a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="/inquiry/comments">고객 의견</a></li>
-                            <li><a class="dropdown-item" href="/inquiry/center">고객 센터</a></li></ul>
-                        <li class="nav-item"><a class="nav-link px-lg-5 py-3 py-lg-4" style="font-size: 15px" href="/recru">채용</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-5 py-3 py-lg-4" style="font-size: 15px" href="/login">로그인</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
         <!-- Page Header-->
         <header class="masthead" style="background-image: url({% static 'assets/img/recru.jpg' %})">
             <div class="container position-relative px-4 px-lg-5">
@@ -50,7 +24,32 @@
                             <hr class="my-4"/>
                             <h5>{{ recru.content }}</h5>
                             <hr class="my-4"/>
-                            <p class="border-0">{{ recru.pub_date }}</p>
+                            <p class="border-0 text-end">{{ recru.pub_date }}</p>
+                        <hr class="my-4"/>
+                                <form method="post" class="mb-4" action="{% url 'recru_comment_create' recru.id %}">
+                                    {% csrf_token %}
+                                    <textarea id="content" name="content" class="form-control" rows="3" placeholder="내용을 입력해주세요."></textarea>
+                                    <div class="mb-3"></div>
+                                    <button type="submit" class="btn btn-primary">submit</button>
+                                </form>
+                                {% for comment in recru.comment_set.all %}
+                                <div class="d-flex">
+                                    <div class="ms-3">
+                                        <h6>
+                                            {{ comment.author.username }} &nbsp&nbsp {{ comment.create_date }}
+                                            {% if comment.create_date != comment.modify_date %}
+                                                / 수정일자: {{ comment.modify_date }}
+                                            {% endif %}
+                                            {% if request.user == comment.author %}
+                                                <a href="{% url 'recru_comment_update' comment.id %}" class="btn btn-sm btn-outline-secondary">수정</a>
+                                                <a href="{% url 'recru_comment_delete' comment.id %}" class="btn btn-sm btn-outline-secondary">삭제</a>
+                                            {% endif %}
+                                        </h6>
+                                        <h6>{{ comment.content }}</h6>
+                                    </div>
+                                </div>
+                                    <br/>
+                                {% endfor %}
                     </div>
                 </div>
             </div>
